@@ -1,0 +1,12 @@
+#ifndef ANACLOUD_GLOBAL_H
+#define ANACLOUD_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(ANACLOUD_LIBRARY)
+#  define ANACLOUDSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define ANACLOUDSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // ANACLOUD_GLOBAL_H
