@@ -1,0 +1,26 @@
+#ifndef PUSHGATEWAY_H
+#define PUSHGATEWAY_H
+
+#include <QByteArray>
+#include <QHash>
+
+#include "connection.h"
+#include "messageHandler.h"
+
+class PushGateWay
+{
+public:
+    PushGateWay();
+    ~PushGateWay();
+    
+    void service(Connection *connection, QByteArray service, QByteArray data);
+    void serviceText(Connection *connection, QByteArray service, QByteArray data);
+    
+    void addHandler(QByteArray service, MessageHandler *handler);
+    void removeHandler(QByteArray service);
+    
+private:
+    QHash<QByteArray, MessageHandler *> handlers;
+};
+
+#endif // PUSHGATEWAY_H
